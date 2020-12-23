@@ -4,8 +4,12 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 
+var paper;
 
-function preload(){}
+function preload()
+{
+	paper=loadImage("paper.png");
+}
 
 function setup() {
 	background=("white");
@@ -37,7 +41,6 @@ function setup() {
 	box3.shapeColor=("red");
 	
 	paper = new Paper(200,130,10);
-	paper.scale = 0.2
 
 	Engine.run(engine);
   
@@ -46,6 +49,7 @@ function setup() {
 
 function draw() {
   rectMode(CENTER);
+  background(0);
 
   if(keyDown(UP_ARROW)) {
 	 Matter.Body.applyForce(paper.Body,paper.Body.position,{x:3,y:-3}); 
@@ -56,4 +60,3 @@ function draw() {
   drawSprites();
  
 }
-
